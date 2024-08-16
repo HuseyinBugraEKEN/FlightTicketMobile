@@ -1,0 +1,614 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B44D4CC42C6F854300B2805B /* FlightTicketMobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44D4CC32C6F854300B2805B /* FlightTicketMobileApp.swift */; };
+		B44D4CC62C6F854300B2805B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44D4CC52C6F854300B2805B /* ContentView.swift */; };
+		B44D4CC82C6F854700B2805B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B44D4CC72C6F854700B2805B /* Assets.xcassets */; };
+		B44D4CCC2C6F854700B2805B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B44D4CCB2C6F854700B2805B /* Preview Assets.xcassets */; };
+		B44D4CD62C6F854800B2805B /* FlightTicketMobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44D4CD52C6F854800B2805B /* FlightTicketMobileTests.swift */; };
+		B44D4CE02C6F854800B2805B /* FlightTicketMobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44D4CDF2C6F854800B2805B /* FlightTicketMobileUITests.swift */; };
+		B44D4CE22C6F854800B2805B /* FlightTicketMobileUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44D4CE12C6F854800B2805B /* FlightTicketMobileUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B44D4CD22C6F854800B2805B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B44D4CB82C6F854300B2805B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B44D4CBF2C6F854300B2805B;
+			remoteInfo = FlightTicketMobile;
+		};
+		B44D4CDC2C6F854800B2805B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B44D4CB82C6F854300B2805B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B44D4CBF2C6F854300B2805B;
+			remoteInfo = FlightTicketMobile;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B44D4CC02C6F854300B2805B /* FlightTicketMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightTicketMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B44D4CC32C6F854300B2805B /* FlightTicketMobileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTicketMobileApp.swift; sourceTree = "<group>"; };
+		B44D4CC52C6F854300B2805B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B44D4CC72C6F854700B2805B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B44D4CC92C6F854700B2805B /* FlightTicketMobile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlightTicketMobile.entitlements; sourceTree = "<group>"; };
+		B44D4CCB2C6F854700B2805B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B44D4CD12C6F854800B2805B /* FlightTicketMobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlightTicketMobileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B44D4CD52C6F854800B2805B /* FlightTicketMobileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTicketMobileTests.swift; sourceTree = "<group>"; };
+		B44D4CDB2C6F854800B2805B /* FlightTicketMobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlightTicketMobileUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B44D4CDF2C6F854800B2805B /* FlightTicketMobileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTicketMobileUITests.swift; sourceTree = "<group>"; };
+		B44D4CE12C6F854800B2805B /* FlightTicketMobileUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTicketMobileUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B44D4CBD2C6F854300B2805B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B44D4CCE2C6F854800B2805B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B44D4CD82C6F854800B2805B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B44D4CB72C6F854300B2805B = {
+			isa = PBXGroup;
+			children = (
+				B44D4CC22C6F854300B2805B /* FlightTicketMobile */,
+				B44D4CD42C6F854800B2805B /* FlightTicketMobileTests */,
+				B44D4CDE2C6F854800B2805B /* FlightTicketMobileUITests */,
+				B44D4CC12C6F854300B2805B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B44D4CC12C6F854300B2805B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B44D4CC02C6F854300B2805B /* FlightTicketMobile.app */,
+				B44D4CD12C6F854800B2805B /* FlightTicketMobileTests.xctest */,
+				B44D4CDB2C6F854800B2805B /* FlightTicketMobileUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B44D4CC22C6F854300B2805B /* FlightTicketMobile */ = {
+			isa = PBXGroup;
+			children = (
+				B44D4CC32C6F854300B2805B /* FlightTicketMobileApp.swift */,
+				B44D4CC52C6F854300B2805B /* ContentView.swift */,
+				B44D4CC72C6F854700B2805B /* Assets.xcassets */,
+				B44D4CC92C6F854700B2805B /* FlightTicketMobile.entitlements */,
+				B44D4CCA2C6F854700B2805B /* Preview Content */,
+			);
+			path = FlightTicketMobile;
+			sourceTree = "<group>";
+		};
+		B44D4CCA2C6F854700B2805B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B44D4CCB2C6F854700B2805B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B44D4CD42C6F854800B2805B /* FlightTicketMobileTests */ = {
+			isa = PBXGroup;
+			children = (
+				B44D4CD52C6F854800B2805B /* FlightTicketMobileTests.swift */,
+			);
+			path = FlightTicketMobileTests;
+			sourceTree = "<group>";
+		};
+		B44D4CDE2C6F854800B2805B /* FlightTicketMobileUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B44D4CDF2C6F854800B2805B /* FlightTicketMobileUITests.swift */,
+				B44D4CE12C6F854800B2805B /* FlightTicketMobileUITestsLaunchTests.swift */,
+			);
+			path = FlightTicketMobileUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B44D4CBF2C6F854300B2805B /* FlightTicketMobile */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B44D4CE52C6F854800B2805B /* Build configuration list for PBXNativeTarget "FlightTicketMobile" */;
+			buildPhases = (
+				B44D4CBC2C6F854300B2805B /* Sources */,
+				B44D4CBD2C6F854300B2805B /* Frameworks */,
+				B44D4CBE2C6F854300B2805B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FlightTicketMobile;
+			productName = FlightTicketMobile;
+			productReference = B44D4CC02C6F854300B2805B /* FlightTicketMobile.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B44D4CD02C6F854800B2805B /* FlightTicketMobileTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B44D4CE82C6F854800B2805B /* Build configuration list for PBXNativeTarget "FlightTicketMobileTests" */;
+			buildPhases = (
+				B44D4CCD2C6F854800B2805B /* Sources */,
+				B44D4CCE2C6F854800B2805B /* Frameworks */,
+				B44D4CCF2C6F854800B2805B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B44D4CD32C6F854800B2805B /* PBXTargetDependency */,
+			);
+			name = FlightTicketMobileTests;
+			productName = FlightTicketMobileTests;
+			productReference = B44D4CD12C6F854800B2805B /* FlightTicketMobileTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B44D4CDA2C6F854800B2805B /* FlightTicketMobileUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B44D4CEB2C6F854800B2805B /* Build configuration list for PBXNativeTarget "FlightTicketMobileUITests" */;
+			buildPhases = (
+				B44D4CD72C6F854800B2805B /* Sources */,
+				B44D4CD82C6F854800B2805B /* Frameworks */,
+				B44D4CD92C6F854800B2805B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B44D4CDD2C6F854800B2805B /* PBXTargetDependency */,
+			);
+			name = FlightTicketMobileUITests;
+			productName = FlightTicketMobileUITests;
+			productReference = B44D4CDB2C6F854800B2805B /* FlightTicketMobileUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B44D4CB82C6F854300B2805B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					B44D4CBF2C6F854300B2805B = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					B44D4CD02C6F854800B2805B = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = B44D4CBF2C6F854300B2805B;
+					};
+					B44D4CDA2C6F854800B2805B = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = B44D4CBF2C6F854300B2805B;
+					};
+				};
+			};
+			buildConfigurationList = B44D4CBB2C6F854300B2805B /* Build configuration list for PBXProject "FlightTicketMobile" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B44D4CB72C6F854300B2805B;
+			productRefGroup = B44D4CC12C6F854300B2805B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B44D4CBF2C6F854300B2805B /* FlightTicketMobile */,
+				B44D4CD02C6F854800B2805B /* FlightTicketMobileTests */,
+				B44D4CDA2C6F854800B2805B /* FlightTicketMobileUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B44D4CBE2C6F854300B2805B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B44D4CCC2C6F854700B2805B /* Preview Assets.xcassets in Resources */,
+				B44D4CC82C6F854700B2805B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B44D4CCF2C6F854800B2805B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B44D4CD92C6F854800B2805B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B44D4CBC2C6F854300B2805B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B44D4CC62C6F854300B2805B /* ContentView.swift in Sources */,
+				B44D4CC42C6F854300B2805B /* FlightTicketMobileApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B44D4CCD2C6F854800B2805B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B44D4CD62C6F854800B2805B /* FlightTicketMobileTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B44D4CD72C6F854800B2805B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B44D4CE22C6F854800B2805B /* FlightTicketMobileUITestsLaunchTests.swift in Sources */,
+				B44D4CE02C6F854800B2805B /* FlightTicketMobileUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B44D4CD32C6F854800B2805B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B44D4CBF2C6F854300B2805B /* FlightTicketMobile */;
+			targetProxy = B44D4CD22C6F854800B2805B /* PBXContainerItemProxy */;
+		};
+		B44D4CDD2C6F854800B2805B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B44D4CBF2C6F854300B2805B /* FlightTicketMobile */;
+			targetProxy = B44D4CDC2C6F854800B2805B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		B44D4CE32C6F854800B2805B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B44D4CE42C6F854800B2805B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		B44D4CE62C6F854800B2805B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FlightTicketMobile/FlightTicketMobile.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"FlightTicketMobile/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.FlightTicketMobile;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B44D4CE72C6F854800B2805B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FlightTicketMobile/FlightTicketMobile.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"FlightTicketMobile/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.FlightTicketMobile;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B44D4CE92C6F854800B2805B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.FlightTicketMobileTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlightTicketMobile.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FlightTicketMobile";
+			};
+			name = Debug;
+		};
+		B44D4CEA2C6F854800B2805B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.FlightTicketMobileTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlightTicketMobile.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FlightTicketMobile";
+			};
+			name = Release;
+		};
+		B44D4CEC2C6F854800B2805B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.FlightTicketMobileUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FlightTicketMobile;
+			};
+			name = Debug;
+		};
+		B44D4CED2C6F854800B2805B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.FlightTicketMobileUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FlightTicketMobile;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B44D4CBB2C6F854300B2805B /* Build configuration list for PBXProject "FlightTicketMobile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B44D4CE32C6F854800B2805B /* Debug */,
+				B44D4CE42C6F854800B2805B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B44D4CE52C6F854800B2805B /* Build configuration list for PBXNativeTarget "FlightTicketMobile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B44D4CE62C6F854800B2805B /* Debug */,
+				B44D4CE72C6F854800B2805B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B44D4CE82C6F854800B2805B /* Build configuration list for PBXNativeTarget "FlightTicketMobileTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B44D4CE92C6F854800B2805B /* Debug */,
+				B44D4CEA2C6F854800B2805B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B44D4CEB2C6F854800B2805B /* Build configuration list for PBXNativeTarget "FlightTicketMobileUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B44D4CEC2C6F854800B2805B /* Debug */,
+				B44D4CED2C6F854800B2805B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B44D4CB82C6F854300B2805B /* Project object */;
+}
