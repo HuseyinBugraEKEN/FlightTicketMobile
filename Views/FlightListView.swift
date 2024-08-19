@@ -4,6 +4,8 @@ struct FlightListView: View {
     @State private var flights: [Flight] = []
     @State private var isLoading = true
     @State private var isLoggedIn: Bool = true // Giriş durumu için state
+    @State private var isFilterActive: Bool = false // Filtreleme durumu için state
+    var userRole: String // Kullanıcının rolü
     private let flightService = FlightService()
 
     var body: some View {
@@ -12,14 +14,24 @@ struct FlightListView: View {
         } else {
             VStack {
                 HStack {
+                    // Eğer kullanıcı Admin değilse filtre bağlantısını göster
+                    if userRole.lowercased() != "admin" {
+                        Button("Filter") {
+                            isFilterActive = true
+                        }
+                        .padding()
+                        .foregroundColor(.blue)
+                    }
+
                     Spacer()
+
                     Button("Logout") {
                         isLoggedIn = false // Oturumu kapat
                     }
                     .padding()
                     .foregroundColor(.blue)
                 }
-                
+
                 if isLoading {
                     ProgressView("Loading flights...")
                 } else {
@@ -35,6 +47,9 @@ struct FlightListView: View {
                     }
                 }
             }
+            .sheet(isPresented: $isFilterActive) {
+                FlightFilterView(flights: $flights, isFilterActive: $isFilterActive)
+            }
             .onAppear {
                 flightService.fetchFlights { result in
                     switch result {
@@ -49,12 +64,13 @@ struct FlightListView: View {
                     }
                 }
             }
+            .navigationTitle("Available Flights")
         }
     }
 }
 
 struct FlightListView_Previews: PreviewProvider {
     static var previews: some View {
-        FlightListView()
+        FlightListView(userRole: "client")
     }
 }

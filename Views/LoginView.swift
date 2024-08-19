@@ -5,6 +5,7 @@ struct LoginView: View {
     @State private var password: String = ""
     @State private var isLoggedIn: Bool = false
     @State private var loginError: String?
+    @State private var userRole: String = "" // Kullanıcının rolünü saklamak için
     private let authService = AuthService()
 
     var body: some View {
@@ -25,12 +26,10 @@ struct LoginView: View {
                 authService.login(username: username, password: password) { result in
                     DispatchQueue.main.async {
                         switch result {
-                        case .success(true):
+                        case .success(let user):
                             isLoggedIn = true
+                            userRole = user.role // Kullanıcının rolünü sakla
                             loginError = nil
-                        case .success(false):
-                            loginError = "Invalid username or password"
-                            isLoggedIn = false
                         case .failure(let error):
                             loginError = error.localizedDescription
                             isLoggedIn = false
@@ -50,7 +49,7 @@ struct LoginView: View {
             }
 
             if isLoggedIn {
-                NavigationLink(destination: FlightListView(), isActive: $isLoggedIn) {
+                NavigationLink(destination: FlightListView(userRole: userRole), isActive: $isLoggedIn) {
                     EmptyView()
                 }.hidden()
             }

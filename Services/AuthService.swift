@@ -1,7 +1,13 @@
 import Foundation
 
+struct User: Codable {
+    let id: Int
+    let username: String
+    let role: String
+}
+
 class AuthService {
-    func login(username: String, password: String, completion: @escaping (Result<Bool, Error>) -> Void) {
+    func login(username: String, password: String, completion: @escaping (Result<User, Error>) -> Void) {
         guard let url = URL(string: "http://localhost:5057/api/Auth/login") else {
             return
         }
@@ -29,12 +35,8 @@ class AuthService {
             }
 
             do {
-                if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-                   jsonResponse["id"] != nil {
-                    completion(.success(true))
-                } else {
-                    completion(.success(false))
-                }
+                let user = try JSONDecoder().decode(User.self, from: data)
+                completion(.success(user))
             } catch let decodingError {
                 completion(.failure(decodingError))
             }
