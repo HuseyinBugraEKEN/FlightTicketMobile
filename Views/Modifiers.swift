@@ -1,8 +1,13 @@
-//
-//  Modifiers.swift
-//  FlightTicketMobile
-//
-//  Created by Buğra EKEN on 16.08.2024.
-//
+import SwiftUI
 
-import Foundation
+struct TextFieldModifiers: ViewModifier {
+    func body(content: Content) -> some View {
+        #if canImport(UIKit)
+        return content
+            .autocapitalization(.none)
+            .disableAutocorrection(true)
+        #else
+        return content
+        #endif
+    }
+}
