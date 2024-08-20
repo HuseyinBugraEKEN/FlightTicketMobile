@@ -23,6 +23,7 @@
 		B44D4CFB2C6F920600B2805B /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44D4CFA2C6F920600B2805B /* Modifiers.swift */; };
 		B44D4CFD2C6F92C300B2805B /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44D4CFC2C6F92C300B2805B /* AuthService.swift */; };
 		B44D4CFF2C6F989000B2805B /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44D4CFE2C6F989000B2805B /* RegisterService.swift */; };
+		B48E20552C74D2CD004CBB88 /* FlightDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48E20542C74D2CD004CBB88 /* FlightDetailView.swift */; };
 		B49D448A2C7486A000B3425C /* AdminDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49D44892C7486A000B3425C /* AdminDashboardView.swift */; };
 		B49D448C2C74897100B3425C /* MyFlightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49D448B2C74897100B3425C /* MyFlightsView.swift */; };
 		B49D448E2C748B5200B3425C /* UserFlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49D448D2C748B5200B3425C /* UserFlight.swift */; };
@@ -68,6 +69,7 @@
 		B44D4CFA2C6F920600B2805B /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		B44D4CFC2C6F92C300B2805B /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		B44D4CFE2C6F989000B2805B /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
+		B48E20542C74D2CD004CBB88 /* FlightDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailView.swift; sourceTree = "<group>"; };
 		B49D44892C7486A000B3425C /* AdminDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDashboardView.swift; sourceTree = "<group>"; };
 		B49D448B2C74897100B3425C /* MyFlightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFlightsView.swift; sourceTree = "<group>"; };
 		B49D448D2C748B5200B3425C /* UserFlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFlight.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				B43E72682C733FC9004786A0 /* FlightFilterView.swift */,
 				B49D44892C7486A000B3425C /* AdminDashboardView.swift */,
 				B49D448B2C74897100B3425C /* MyFlightsView.swift */,
+				B48E20542C74D2CD004CBB88 /* FlightDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				B44D4CF12C6F89B300B2805B /* Flight.swift in Sources */,
 				B44D4CF42C6F89E500B2805B /* FlightService.swift in Sources */,
 				B44D4CFB2C6F920600B2805B /* Modifiers.swift in Sources */,
+				B48E20552C74D2CD004CBB88 /* FlightDetailView.swift in Sources */,
 				B44D4CC62C6F854300B2805B /* ContentView.swift in Sources */,
 				B44D4CF92C6F8F1F00B2805B /* RegisterView.swift in Sources */,
 				B4E7F3C42C732D4500F0DC1E /* WelcomeView.swift in Sources */,

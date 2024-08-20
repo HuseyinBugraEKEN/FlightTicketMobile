@@ -6,8 +6,9 @@ struct FlightListView: View {
     @State private var isLoggedIn: Bool = true
     @State private var isFilterActive: Bool = false
     @State private var isMyFlightsActive: Bool = false
+    @State private var selectedFlight: Flight? = nil // Seçilen uçuş
     var userRole: String
-    var userId: Int // Kullanıcı ID'si
+    var userId: Int
     private let flightService = FlightService()
     
     var body: some View {
@@ -43,7 +44,7 @@ struct FlightListView: View {
                 .padding()
                 .foregroundColor(.red)
             }
-            
+
             if isLoading {
                 ProgressView("Loading flights...")
                     .progressViewStyle(CircularProgressViewStyle())
@@ -53,21 +54,28 @@ struct FlightListView: View {
                     .padding()
             } else {
                 List(flights) { flight in
-                    VStack(alignment: .leading, spacing: 5) {
-                        Text("\(flight.departure) → \(flight.arrival)")
-                            .font(.headline)
-                        Text("Date: \(flight.formattedDate) at \(flight.time)")
-                            .font(.subheadline)
-                        Text("Capacity: \(flight.capacity)")
-                            .font(.subheadline)
-                        Text("Price: \(flight.formattedPrice)")
-                            .font(.subheadline)
+                    Button(action: {
+                        selectedFlight = flight
+                    }) {
+                        VStack(alignment: .leading, spacing: 5) {
+                            Text("\(flight.departure) → \(flight.arrival)")
+                                .font(.headline)
+                            Text("Date: \(flight.formattedDate) at \(flight.time)")
+                                .font(.subheadline)
+                            Text("Capacity: \(flight.capacity)")
+                                .font(.subheadline)
+                            Text("Price: \(flight.formattedPrice)")
+                                .font(.subheadline)
+                        }
+                        .padding(5)
                     }
-                    .padding(5)
+                }
+                .sheet(item: $selectedFlight) { flight in
+                    FlightDetailView(flight: flight, userId: userId, userRole: userRole)
                 }
             }
         }
-        .navigationBarHidden(true) // Navigation bar'ı tamamen gizle
+        .navigationBarHidden(true)
         .sheet(isPresented: $isFilterActive) {
             FlightFilterView(flights: $flights, isFilterActive: $isFilterActive)
         }
@@ -94,11 +102,5 @@ struct FlightListView: View {
                 }
             }
         }
-    }
-}
-
-struct FlightListView_Previews: PreviewProvider {
-    static var previews: some View {
-        FlightListView(userRole: "client", userId: 7)
     }
 }
