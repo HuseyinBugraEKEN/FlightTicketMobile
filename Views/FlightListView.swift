@@ -34,7 +34,6 @@ struct FlightListView: View {
                 
                 Button("Logout") {
                     isLoggedIn = false
-                    // Logout işlemi sonrası WelcomeView'e dönüyoruz
                     if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                        let window = windowScene.windows.first {
                         window.rootViewController = UIHostingController(rootView: WelcomeView())
@@ -44,7 +43,7 @@ struct FlightListView: View {
                 .padding()
                 .foregroundColor(.red)
             }
-
+            
             if isLoading {
                 ProgressView("Loading flights...")
                     .progressViewStyle(CircularProgressViewStyle())
@@ -71,7 +70,9 @@ struct FlightListView: View {
                     }
                 }
                 .sheet(item: $selectedFlight) { flight in
-                    FlightDetailView(flight: flight, userId: userId, userRole: userRole)
+                    FlightDetailView(flight: flight, userId: userId, userRole: userRole, onCompletion: {
+                        loadFlights() // Satın alma veya iptal sonrası uçuş listesini yenile
+                    })
                 }
             }
         }
@@ -80,7 +81,9 @@ struct FlightListView: View {
             FlightFilterView(flights: $flights, isFilterActive: $isFilterActive)
         }
         .sheet(isPresented: $isMyFlightsActive) {
-            MyFlightsView(userId: userId)
+            MyFlightsView(userId: userId, onCompletion: {
+                loadFlights() // Satın alma veya iptal sonrası uçuş listesini yenile
+            })
         }
         .onAppear {
             loadFlights()
@@ -88,18 +91,16 @@ struct FlightListView: View {
     }
     
     private func loadFlights() {
+        isLoading = true
         flightService.fetchFlights { result in
-            switch result {
-            case .success(let flights):
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let flights):
                     self.flights = flights
-                    self.isLoading = false
+                case .failure(let error):
+                    print("Error fetching flights: \(error.localizedDescription)")
                 }
-            case .failure(let error):
-                print("Error fetching flights: \(error.localizedDescription)")
-                DispatchQueue.main.async {
-                    self.isLoading = false
-                }
+                self.isLoading = false
             }
         }
     }

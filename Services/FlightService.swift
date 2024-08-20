@@ -128,4 +128,32 @@ class FlightService {
                 completion(.success(()))
             }.resume()
         }
+    
+    
+    func cancelFlight(flightId: Int, userId: Int, completion: @escaping (Result<Void, Error>) -> Void) {
+            guard let url = URL(string: "http://localhost:5057/api/Flights/cancel") else {
+                completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
+                return
+            }
+
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+            let cancelData = ["flightId": flightId, "userId": userId]
+            guard let httpBody = try? JSONSerialization.data(withJSONObject: cancelData, options: []) else {
+                return
+            }
+
+            request.httpBody = httpBody
+
+            URLSession.shared.dataTask(with: request) { _, response, error in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+
+                completion(.success(()))
+            }.resume()
+        }
 }

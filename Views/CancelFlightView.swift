@@ -1,67 +1,67 @@
 import SwiftUI
 
-struct FlightDetailView: View {
-    var flight: Flight
+struct CancelFlightView: View {
+    var flight: UserFlight
     var userId: Int
-    var userRole: String
-    var onCompletion: () -> Void
+    var onCancel: () -> Void // İptal işlemi sonrası çağrılacak callback
     @Environment(\.presentationMode) var presentationMode
-    @State private var purchaseSuccess: Bool = false
+    @State private var cancelSuccess: Bool = false
     @State private var showMessage: Bool = false
     private let flightService = FlightService()
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
+            Text("Do you want to cancel this flight?")
+                .font(.title2)
+                .padding(.bottom, 20)
+            
             Text("\(flight.departure) → \(flight.arrival)")
-                .font(.largeTitle)
+                .font(.title3)
                 .padding(.bottom, 10)
             
             Text("Date: \(flight.formattedDate)")
-            Text("Time: \(flight.formattedTime)")
-            Text("Capacity: \(flight.capacity)")
+            Text("Time: \(flight.time)")
             Text("Price: \(flight.formattedPrice)")
 
-            if userRole.lowercased() != "admin" {
-                Button("Buy Flight") {
-                    buyFlight()
-                }
-                .padding()
-                .background(Color.green)
-                .foregroundColor(.white)
-                .cornerRadius(8)
+            Button("Cancel Flight") {
+                cancelFlight()
             }
-
-            Button("Cancel") {
+            .padding()
+            .background(Color.red)
+            .foregroundColor(.white)
+            .cornerRadius(8)
+            
+            Button("Go Back") {
                 presentationMode.wrappedValue.dismiss()
             }
             .padding()
             .foregroundColor(.blue)
-
+            
             Spacer()
 
             if showMessage {
-                Text(purchaseSuccess ? "Flight successfully purchased!" : "Failed to purchase flight.")
-                    .foregroundColor(purchaseSuccess ? .green : .red)
+                Text(cancelSuccess ? "Flight successfully canceled!" : "Failed to cancel flight.")
+                    .foregroundColor(cancelSuccess ? .green : .red)
                     .padding()
             }
         }
         .padding()
     }
 
-    private func buyFlight() {
-        flightService.buyFlight(flightId: flight.id, userId: userId) { result in
+    private func cancelFlight() {
+        flightService.cancelFlight(flightId: flight.id, userId: userId) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success:
-                    purchaseSuccess = true
+                    cancelSuccess = true
                     showMessage = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         showMessage = false
                         presentationMode.wrappedValue.dismiss()
-                        onCompletion()
+                        onCancel()
                     }
                 case .failure:
-                    purchaseSuccess = false
+                    cancelSuccess = false
                     showMessage = true
                 }
             }
