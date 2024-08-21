@@ -156,4 +156,64 @@ class FlightService {
                 completion(.success(()))
             }.resume()
         }
+    
+    
+    func addFlight(_ flight: FlightCreateModel, completion: @escaping (Result<Void, Error>) -> Void) {
+            guard let url = URL(string: "http://localhost:5057/api/Flights") else {
+                completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
+                return
+            }
+
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+            guard let httpBody = try? JSONEncoder().encode(flight) else {
+                completion(.failure(NSError(domain: "Encoding Error", code: 0, userInfo: nil)))
+                return
+            }
+
+            request.httpBody = httpBody
+
+            URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+
+                // Yanıtın durumunu kontrol et
+                if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 201 {
+                    completion(.failure(NSError(domain: "Invalid response", code: httpResponse.statusCode, userInfo: nil)))
+                    return
+                }
+
+                completion(.success(()))
+            }.resume()
+        }
+    
+    
+    func deleteFlight(flightId: Int, completion: @escaping (Result<Void, Error>) -> Void) {
+            guard let url = URL(string: "http://localhost:5057/api/Flights/\(flightId)") else {
+                completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
+                return
+            }
+
+            var request = URLRequest(url: url)
+            request.httpMethod = "DELETE"
+
+            URLSession.shared.dataTask(with: request) { _, response, error in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+
+                // Yanıtın durumunu kontrol et
+                if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 204 {
+                    completion(.failure(NSError(domain: "Invalid response", code: httpResponse.statusCode, userInfo: nil)))
+                    return
+                }
+
+                completion(.success(()))
+            }.resume()
+        }
 }

@@ -23,6 +23,8 @@
 		B44D4CFB2C6F920600B2805B /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44D4CFA2C6F920600B2805B /* Modifiers.swift */; };
 		B44D4CFD2C6F92C300B2805B /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44D4CFC2C6F92C300B2805B /* AuthService.swift */; };
 		B44D4CFF2C6F989000B2805B /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44D4CFE2C6F989000B2805B /* RegisterService.swift */; };
+		B45436CB2C75D57200AB4375 /* AddFlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45436CA2C75D57200AB4375 /* AddFlightView.swift */; };
+		B45436CD2C75D65800AB4375 /* FlightCreateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45436CC2C75D65800AB4375 /* FlightCreateModel.swift */; };
 		B48E20552C74D2CD004CBB88 /* FlightDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48E20542C74D2CD004CBB88 /* FlightDetailView.swift */; };
 		B48E20572C74D85D004CBB88 /* CancelFlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48E20562C74D85D004CBB88 /* CancelFlightView.swift */; };
 		B49D448A2C7486A000B3425C /* AdminDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49D44892C7486A000B3425C /* AdminDashboardView.swift */; };
@@ -70,6 +72,8 @@
 		B44D4CFA2C6F920600B2805B /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		B44D4CFC2C6F92C300B2805B /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		B44D4CFE2C6F989000B2805B /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
+		B45436CA2C75D57200AB4375 /* AddFlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFlightView.swift; sourceTree = "<group>"; };
+		B45436CC2C75D65800AB4375 /* FlightCreateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightCreateModel.swift; sourceTree = "<group>"; };
 		B48E20542C74D2CD004CBB88 /* FlightDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailView.swift; sourceTree = "<group>"; };
 		B48E20562C74D85D004CBB88 /* CancelFlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelFlightView.swift; sourceTree = "<group>"; };
 		B49D44892C7486A000B3425C /* AdminDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDashboardView.swift; sourceTree = "<group>"; };
@@ -170,6 +174,7 @@
 				B44D4CF02C6F89B300B2805B /* Flight.swift */,
 				B43E72772C734329004786A0 /* FlightFilterModel.swift */,
 				B49D448D2C748B5200B3425C /* UserFlight.swift */,
+				B45436CC2C75D65800AB4375 /* FlightCreateModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -197,6 +202,7 @@
 				B49D448B2C74897100B3425C /* MyFlightsView.swift */,
 				B48E20542C74D2CD004CBB88 /* FlightDetailView.swift */,
 				B48E20562C74D85D004CBB88 /* CancelFlightView.swift */,
+				B45436CA2C75D57200AB4375 /* AddFlightView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -342,11 +348,13 @@
 				B44D4CF92C6F8F1F00B2805B /* RegisterView.swift in Sources */,
 				B4E7F3C42C732D4500F0DC1E /* WelcomeView.swift in Sources */,
 				B49D448E2C748B5200B3425C /* UserFlight.swift in Sources */,
+				B45436CB2C75D57200AB4375 /* AddFlightView.swift in Sources */,
 				B49D448C2C74897100B3425C /* MyFlightsView.swift in Sources */,
 				B44D4CF72C6F8CF400B2805B /* LoginView.swift in Sources */,
 				B4E7F3C62C732E3400F0DC1E /* FlightListView.swift in Sources */,
 				B44D4CFF2C6F989000B2805B /* RegisterService.swift in Sources */,
 				B44D4CC42C6F854300B2805B /* FlightTicketMobileApp.swift in Sources */,
+				B45436CD2C75D65800AB4375 /* FlightCreateModel.swift in Sources */,
 				B44D4CFD2C6F92C300B2805B /* AuthService.swift in Sources */,
 				B49D448A2C7486A000B3425C /* AdminDashboardView.swift in Sources */,
 			);

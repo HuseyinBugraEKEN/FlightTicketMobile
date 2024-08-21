@@ -53,8 +53,9 @@ struct LoginView: View {
                         .padding()
                 }
 
+                // Admin için yönlendirme
                 NavigationLink(
-                    destination: FlightListView(userRole: userRole, userId: userId),
+                    destination: userRole.lowercased() == "admin" ? AnyView(AdminDashboardView()) : AnyView(FlightListView(userRole: userRole, userId: userId)),
                     isActive: $isLoggedIn
                 ) {
                     EmptyView()
@@ -79,11 +80,5 @@ struct LoginView: View {
             window.rootViewController = UIHostingController(rootView: WelcomeView())
             window.makeKeyAndVisible()
         }
-    }
-}
-
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
     }
 }
