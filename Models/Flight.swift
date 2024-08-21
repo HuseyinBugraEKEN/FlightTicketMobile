@@ -20,7 +20,12 @@ struct Flight: Codable, Identifiable {
     var formattedTime: String {
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm" // Sadece saat ve dakika göstermek için
-        return formatter.string(from: formatter.date(from: time) ?? Date())
+
+        if let dateFromTime = formatter.date(from: time) {
+            return formatter.string(from: dateFromTime)
+        } else {
+            return time // Eğer time string'i "HH:mm" formatına uygun değilse, time'ı olduğu gibi döndür.
+        }
     }
 
     var formattedPrice: String {

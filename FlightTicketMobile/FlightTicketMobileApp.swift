@@ -4,7 +4,7 @@ import SwiftUI
 struct FlightTicketMobileApp: App {
     var body: some Scene {
         WindowGroup {
-            WelcomeView() // NavigationView burada kullanılmıyor
+            WelcomeView()
         }
     }
 }

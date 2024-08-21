@@ -1,22 +1,33 @@
 import SwiftUI
 
-struct AddFlightView: View {
-    @State private var departure: String = ""
-    @State private var arrival: String = ""
-    @State private var date: Date = Date()
-    @State private var time: String = ""
-    @State private var capacity: Int = 100
-    @State private var price: String = ""
-    @State private var addSuccess: Bool = false
+struct EditFlightView: View {
+    @State private var departure: String
+    @State private var arrival: String
+    @State private var date: Date
+    @State private var time: String
+    @State private var capacity: Int
+    @State private var price: String
+    @State private var editSuccess: Bool = false
     @State private var showMessage: Bool = false
     @State private var errorMessage: String?
 
     @Environment(\.presentationMode) var presentationMode
     private let flightService = FlightService()
+    var flightId: Int
+
+    init(flight: Flight) {
+        _departure = State(initialValue: flight.departure)
+        _arrival = State(initialValue: flight.arrival)
+        _date = State(initialValue: flight.date)
+        _time = State(initialValue: String(flight.time.prefix(5))) // "12:12:12" yerine "12:12" olarak göster
+        _capacity = State(initialValue: flight.capacity)
+        _price = State(initialValue: String(format: "%.2f", NSDecimalNumber(decimal: flight.price).doubleValue)) // "121.21 TL" yerine "121.21" olarak göster
+        self.flightId = flight.id
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("Add New Flight")
+            Text("Edit Flight")
                 .font(.largeTitle)
                 .padding(.bottom, 20)
 
@@ -43,37 +54,37 @@ struct AddFlightView: View {
                 .padding(.bottom, 10)
                 .keyboardType(.decimalPad)
 
-            Button("Add Flight") {
-                addFlight()
+            Button("Save Changes") {
+                editFlight()
             }
             .padding()
-            .background(Color.green)
+            .background(Color.blue)
             .foregroundColor(.white)
             .cornerRadius(8)
 
             Spacer()
 
             if showMessage {
-                Text(addSuccess ? "Flight successfully added!" : (errorMessage ?? "Failed to add flight."))
-                    .foregroundColor(addSuccess ? .green : .red)
+                Text(editSuccess ? "Flight successfully updated!" : (errorMessage ?? "Failed to update flight."))
+                    .foregroundColor(editSuccess ? .green : .red)
                     .padding()
             }
         }
         .padding()
     }
 
-    private func addFlight() {
+    private func editFlight() {
         // Boş alanları kontrol etme
         if departure.isEmpty || arrival.isEmpty || time.isEmpty || price.isEmpty {
             errorMessage = "All fields are required."
-            addSuccess = false
+            editSuccess = false
             showMessage = true
             return
         }
 
         guard let priceValue = Decimal(string: price) else {
             errorMessage = "Invalid price format."
-            addSuccess = false
+            editSuccess = false
             showMessage = true
             return
         }
@@ -97,19 +108,19 @@ struct AddFlightView: View {
             price: priceValue
         )
 
-        flightService.addFlight(flight) { result in
+        flightService.updateFlight(flightId: flightId, flight: flight) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success:
-                    addSuccess = true
+                    editSuccess = true
                     showMessage = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         showMessage = false
                         presentationMode.wrappedValue.dismiss()
                     }
                 case .failure:
-                    addSuccess = false
-                    errorMessage = "Failed to add flight."
+                    editSuccess = false
+                    errorMessage = "Failed to update flight."
                     showMessage = true
                 }
             }

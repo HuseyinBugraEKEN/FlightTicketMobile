@@ -5,6 +5,7 @@ struct AdminDashboardView: View {
     @State private var isLoading = true
     @State private var errorMessage: String?
     @State private var showAddFlightView = false
+    @State private var selectedFlight: Flight?
 
     private let flightService = FlightService()
 
@@ -32,19 +33,34 @@ struct AdminDashboardView: View {
                             VStack(alignment: .leading) {
                                 Text("\(flight.departure) → \(flight.arrival)")
                                     .font(.headline)
-                                Text("Date: \(flight.formattedDate) at \(flight.formattedTime)")
+                                Text("Date: \(flight.formattedDate)\n\(flight.formattedTime)")
                                 Text("Capacity: \(flight.capacity)")
                                 Text("Price: \(flight.formattedPrice)")
                             }
                             Spacer()
-                            Button(action: {
-                                deleteFlight(flightId: flight.id)
-                            }) {
-                                Image(systemName: "trash")
-                                    .foregroundColor(.red)
+                            HStack {
+                                Button(action: {
+                                    selectedFlight = flight
+                                }) {
+                                    Image(systemName: "pencil")
+                                        .foregroundColor(.blue)
+                                }
+                                .padding(.trailing, 10)
+                                Button(action: {
+                                    deleteFlight(flightId: flight.id)
+                                }) {
+                                    Image(systemName: "trash")
+                                        .foregroundColor(.red)
+                                }
                             }
+                            .buttonStyle(BorderlessButtonStyle()) // Sadece butonların tıklanabilir olmasını sağlar
                         }
                     }
+                }
+                .sheet(item: $selectedFlight, onDismiss: {
+                    loadFlights() // Uçuş editleme işlemi bittikten sonra listeyi güncelle
+                }) { flight in
+                    EditFlightView(flight: flight)
                 }
             }
 
@@ -57,7 +73,9 @@ struct AdminDashboardView: View {
             .background(Color.green)
             .foregroundColor(.white)
             .cornerRadius(8)
-            .sheet(isPresented: $showAddFlightView) {
+            .sheet(isPresented: $showAddFlightView, onDismiss: {
+                loadFlights() // Uçuş ekleme işlemi bittikten sonra listeyi güncelle
+            }) {
                 AddFlightView()
             }
         }
@@ -93,11 +111,5 @@ struct AdminDashboardView: View {
                 }
             }
         }
-    }
-}
-
-struct AdminDashboardView_Previews: PreviewProvider {
-    static var previews: some View {
-        AdminDashboardView()
     }
 }

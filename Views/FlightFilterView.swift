@@ -81,9 +81,3 @@ struct FlightFilterView: View {
     }
 
 }
-
-struct FlightFilterView_Previews: PreviewProvider {
-    static var previews: some View {
-        FlightFilterView(flights: .constant([]), isFilterActive: .constant(false))
-    }
-}

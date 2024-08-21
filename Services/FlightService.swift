@@ -216,4 +216,39 @@ class FlightService {
                 completion(.success(()))
             }.resume()
         }
+    
+    
+    func updateFlight(flightId: Int, flight: FlightCreateModel, completion: @escaping (Result<Void, Error>) -> Void) {
+            guard let url = URL(string: "http://localhost:5057/api/Flights/\(flightId)") else {
+                completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
+                return
+            }
+
+            var request = URLRequest(url: url)
+            request.httpMethod = "PUT"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+            do {
+                let httpBody = try JSONEncoder().encode(flight)
+                request.httpBody = httpBody
+            } catch {
+                completion(.failure(error))
+                return
+            }
+
+            URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+
+                // Yanıtın durumunu kontrol et
+                if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 204 {
+                    completion(.failure(NSError(domain: "Invalid response", code: httpResponse.statusCode, userInfo: nil)))
+                    return
+                }
+
+                completion(.success(()))
+            }.resume()
+        }
 }
