@@ -1,6 +1,6 @@
 import Foundation
 
-struct Flight: Codable, Identifiable {
+struct Flight: Codable, Identifiable {// JSON read-write, benzersiz bir kimliği (ID) olduğunu belirtir.
     var id: Int
     var departure: String
     var arrival: String
@@ -33,10 +33,13 @@ struct Flight: Codable, Identifiable {
     }
 
     enum CodingKeys: String, CodingKey {
+// Bu bir rehber gibi çalışır ve JSON’daki her bir anahtarın Flight içindeki hangi özelliğe karşılık geldiğini söyler.
         case id, departure, arrival, date, time, capacity, price
     }
 
+
     init(from decoder: Decoder) throws {
+// JSON verilerini alıp Flight yapısının içine koyarken, özellikle tarih formatları gibi karmaşık verileri doğru şekilde yorumlamak için kullanılır
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(Int.self, forKey: .id)
         departure = try container.decode(String.self, forKey: .departure)

@@ -3,11 +3,11 @@ import SwiftUI
 struct FlightFilterView: View {
     @State private var departure: String = ""
     @State private var arrival: String = ""
-    @State private var date: Date = Date()
+    @State private var date: Date = Date()//Varsayılan olarak bugünün tarihi.
     @State private var passengers: Int = 1
 
-    @Binding var flights: [Flight]
-    @Binding var isFilterActive: Bool
+    @Binding var flights: [Flight] //Ana uçuş listesinden gelen bir referanstır ve burada filtrelendikten sonra güncellenir.
+    @Binding var isFilterActive: Bool // Filtreleme ekranının aktif olup olmadığını kontrol eder.
     private let flightService = FlightService()
 
     var body: some View {
@@ -31,8 +31,9 @@ struct FlightFilterView: View {
                 .padding()
 
             Button("Apply Filters") {
+            // Kullanıcı filtreleri uygulamak için bu butona tıkladığında, applyFilters fonksiyonu çağrılır ve uçuşlar filtrelenir.
                 applyFilters()
-                isFilterActive = false
+                isFilterActive = false //Filtreler uygulandıktan sonra filtreleme ekranı kapanır.
             }
             .padding()
             .background(Color.blue)

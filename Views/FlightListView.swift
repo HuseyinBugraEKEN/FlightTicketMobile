@@ -51,10 +51,10 @@ struct FlightListView: View {
                 Text("No available flights.")
                     .foregroundColor(.gray)
                     .padding()
-            } else {
+            } else {// Uçuşlar başarıyla yüklendiğinde, kullanıcıya bir liste halinde sunulur.
                 List(flights) { flight in
-                    Button(action: {
-                        selectedFlight = flight
+                    Button(action: {// Her bir uçuş listede bir buton olarak gösterilir.
+                        selectedFlight = flight// Bu butona tıklanarak uçuş seçilebilir ve detaylar görüntülenebilir.
                     }) {
                         VStack(alignment: .leading, spacing: 5) {
                             Text("\(flight.departure) → \(flight.arrival)")
@@ -70,27 +70,29 @@ struct FlightListView: View {
                     }
                 }
                 .sheet(item: $selectedFlight) { flight in
+                // Kullanıcı bir uçuş seçtiğinde, uçuş detaylarını gösteren bir ekran (FlightDetailView) açılır.
                     FlightDetailView(flight: flight, userId: userId, userRole: userRole, onCompletion: {
-                        loadFlights() // Satın alma veya iptal sonrası uçuş listesini yenile
+                        loadFlights() // Satın alma veya iptal sonrası uçuş listesini yeniler.
                     })
                 }
             }
         }
         .navigationBarHidden(true)
-        .sheet(isPresented: $isFilterActive) {
+        .sheet(isPresented: $isFilterActive) {// Filtreleme ekranı aktif olduğunda, FlightFilterView açılır.
             FlightFilterView(flights: $flights, isFilterActive: $isFilterActive)
         }
-        .sheet(isPresented: $isMyFlightsActive) {
+        .sheet(isPresented: $isMyFlightsActive) {// Kullanıcının satın aldığı uçuşları gösteren ekran aktif olduğunda, MyFlightsView açılır.
             MyFlightsView(userId: userId, onCompletion: {
-                loadFlights() // Satın alma veya iptal sonrası uçuş listesini yenile
+                loadFlights() // Satın alma veya iptal sonrası uçuş listesini yeniler
             })
         }
-        .onAppear {
+        .onAppear {// Bir view ilk defa ekranda göründüğünde (onAppear) çağrılan bir closure (kod bloğu) tanımlar. Bu, view'in yüklenmesi sırasında belirli işlemleri (loadFlights) tetiklemek için kullanılır.
             loadFlights()
         }
     }
     
     private func loadFlights() {
+    // Uçuşları sunucudan almak için kullanılır. FlightService aracılığıyla bir API isteği yapılır
         isLoading = true
         flightService.fetchFlights { result in
             DispatchQueue.main.async {

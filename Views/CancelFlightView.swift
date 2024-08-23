@@ -3,7 +3,7 @@ import SwiftUI
 struct CancelFlightView: View {
     var flight: UserFlight
     var userId: Int
-    var onCancel: () -> Void // İptal işlemi sonrası çağrılacak callback
+    var onCancel: () -> Void // Uçuş iptal edildikten sonra çağrılacak callback fonksiyonu. Bu, dış view'lerdeki işlemlerin güncellenmesini sağlar.
     @Environment(\.presentationMode) var presentationMode
     @State private var cancelSuccess: Bool = false
     @State private var showMessage: Bool = false
@@ -31,7 +31,7 @@ struct CancelFlightView: View {
             .foregroundColor(.white)
             .cornerRadius(8)
             
-            Button("Go Back") {
+            Button("Go Back") { // view kapanır ve önceki ekrana geri döner.
                 presentationMode.wrappedValue.dismiss()
             }
             .padding()
@@ -48,10 +48,10 @@ struct CancelFlightView: View {
         .padding()
     }
 
-    private func cancelFlight() {
-        flightService.cancelFlight(flightId: flight.id, userId: userId) { result in
+    private func cancelFlight() { // kullanıcının uçuşu iptal etmesini sağlar.
+        flightService.cancelFlight(flightId: flight.id, userId: userId) { result in // FlightService aracılığıyla bir API isteği yapılır
             DispatchQueue.main.async {
-                switch result {
+                switch result {// ve sonuçlara göre cancelSuccess ve showMessage değişkenleri güncellenir.
                 case .success:
                     cancelSuccess = true
                     showMessage = true

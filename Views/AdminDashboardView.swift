@@ -6,6 +6,8 @@ struct AdminDashboardView: View {
     @State private var errorMessage: String?
     @State private var showAddFlightView = false
     @State private var selectedFlight: Flight?
+    @State private var selectedUserEmails: [String] = []
+    @State private var showUserEmails = false
 
     private let flightService = FlightService()
 
@@ -26,41 +28,57 @@ struct AdminDashboardView: View {
                 Text("No available flights.")
                     .foregroundColor(.gray)
                     .padding()
-            } else {
+            } else { //Uçuşlar başarıyla yüklendiğinde, kullanıcıya bir liste halinde sunulur.
                 List {
-                    ForEach(flights) { flight in
-                        HStack {
+                    ForEach(flights) { flight in //Her bir uçuş listede bir HStack olarak gösterilir
+                        HStack { //Uçuş detayları
                             VStack(alignment: .leading) {
                                 Text("\(flight.departure) → \(flight.arrival)")
                                     .font(.headline)
-                                Text("Date: \(flight.formattedDate)\n\(flight.formattedTime)")
+                                Text("Date: \(flight.formattedDate) at \(flight.formattedTime)")
                                 Text("Capacity: \(flight.capacity)")
                                 Text("Price: \(flight.formattedPrice)")
                             }
                             Spacer()
-                            HStack {
-                                Button(action: {
+                            HStack { // edit, silme, kullanıcı mailleri
+                                Button(action: { // edit
                                     selectedFlight = flight
                                 }) {
                                     Image(systemName: "pencil")
                                         .foregroundColor(.blue)
                                 }
                                 .padding(.trailing, 10)
-                                Button(action: {
+
+                                Button(action: { // silme
                                     deleteFlight(flightId: flight.id)
                                 }) {
                                     Image(systemName: "trash")
                                         .foregroundColor(.red)
                                 }
+                                .padding(.trailing, 10)
+
+                                Button(action: { // kullanıcı mailleri
+                                    fetchUserEmails(flightId: flight.id)
+                                }) {
+                                    Text("View Users")
+                                        .foregroundColor(.blue)
+                                }
                             }
-                            .buttonStyle(BorderlessButtonStyle()) // Sadece butonların tıklanabilir olmasını sağlar
+                            .buttonStyle(BorderlessButtonStyle())
                         }
                     }
                 }
-                .sheet(item: $selectedFlight, onDismiss: {
-                    loadFlights() // Uçuş editleme işlemi bittikten sonra listeyi güncelle
-                }) { flight in
+                .sheet(item: $selectedFlight, onDismiss: {// Bir uçuş düzenlemek için EditFlightView ekranı açılır. Düzenleme tamamlandıktan sonra uçuşlar yeniden yüklenir.
+                    loadFlights()})
+                { flight in
                     EditFlightView(flight: flight)
+                }
+                .alert(isPresented: $showUserEmails) {// Kullanıcıların e-posta adreslerini bir Alert olarak gösterir. E-posta adresleri alt alta listelenir.
+                    Alert(
+                        title: Text("Users who bought this flight"),
+                        message: Text(selectedUserEmails.joined(separator: "\n")), //E-posta adresleri alt alta listelenir.
+                        dismissButton: .default(Text("OK"))
+                    )
                 }
             }
 
@@ -73,8 +91,8 @@ struct AdminDashboardView: View {
             .background(Color.green)
             .foregroundColor(.white)
             .cornerRadius(8)
-            .sheet(isPresented: $showAddFlightView, onDismiss: {
-                loadFlights() // Uçuş ekleme işlemi bittikten sonra listeyi güncelle
+            .sheet(isPresented: $showAddFlightView, onDismiss: { //Uçuş eklemek için AddFlightView ekranı açılır. Yeni bir uçuş eklendikten sonra uçuşlar yeniden yüklenir.
+                loadFlights()
             }) {
                 AddFlightView()
             }
@@ -85,10 +103,10 @@ struct AdminDashboardView: View {
         }
     }
 
-    private func loadFlights() {
-        flightService.fetchFlights { result in
+    private func loadFlights() { //Uçuşları sunucudan almak için kullanılır.
+        flightService.fetchFlights { result in // FlightService aracılığıyla bir API isteği yapılır
             DispatchQueue.main.async {
-                switch result {
+                switch result { // ve sonuçlara göre flights listesi güncellenir.
                 case .success(let flights):
                     self.flights = flights
                     self.isLoading = false
@@ -100,14 +118,28 @@ struct AdminDashboardView: View {
         }
     }
 
-    private func deleteFlight(flightId: Int) {
-        flightService.deleteFlight(flightId: flightId) { result in
+    private func deleteFlight(flightId: Int) { // Belirtilen uçuşu silmek için kullanılır.
+        flightService.deleteFlight(flightId: flightId) { result in //FlightService aracılığıyla bir API isteği yapılır
             DispatchQueue.main.async {
-                switch result {
+                switch result { // ve uçuş başarıyla silinirse flights listesinden kaldırılır.
                 case .success:
                     self.flights.removeAll { $0.id == flightId }
                 case .failure(let error):
                     self.errorMessage = "Failed to delete flight: \(error.localizedDescription)"
+                }
+            }
+        }
+    }
+
+    private func fetchUserEmails(flightId: Int) { // belirtilen uçuşu satın alan kullanıcıların e-posta adreslerini almak için kullanılır.
+        flightService.fetchUserEmailsByFlightId(flightId: flightId) { result in // FlightService aracılığıyla bir API isteği yapılır
+            DispatchQueue.main.async {
+                switch result { // ve sonuçlar selectedUserEmails listesine eklenir.
+                case .success(let emails):
+                    self.selectedUserEmails = emails
+                    self.showUserEmails = true
+                case .failure(let error):
+                    self.errorMessage = "Failed to fetch user emails: \(error.localizedDescription)"
                 }
             }
         }

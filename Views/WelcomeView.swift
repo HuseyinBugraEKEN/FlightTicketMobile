@@ -2,7 +2,7 @@ import SwiftUI
 
 struct WelcomeView: View {
     var body: some View {
-        VStack {
+        VStack {// dikey olarak sıralanmış bir bileşenler grubudur.
             Text("Welcome to FlightTicketMobile")
                 .font(.largeTitle)
                 .padding()
@@ -11,7 +11,7 @@ struct WelcomeView: View {
                 .font(.headline)
                 .padding()
 
-            HStack {
+            HStack {// yatay olarak sıralanmış bir bileşenler grubudur
                 Button(action: {
                     navigateToLogin()
                 }) {

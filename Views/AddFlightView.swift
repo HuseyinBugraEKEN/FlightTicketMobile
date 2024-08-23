@@ -71,6 +71,7 @@ struct AddFlightView: View {
             return
         }
 
+        // Fiyatın geçerliğini kontrol etme
         guard let priceValue = Decimal(string: price) else {
             errorMessage = "Invalid price format."
             addSuccess = false
@@ -97,7 +98,7 @@ struct AddFlightView: View {
             price: priceValue
         )
 
-        flightService.addFlight(flight) { result in
+        flightService.addFlight(flight) { result in // FlightService aracılığıyla uçuş ekleme isteği yapılır.
             DispatchQueue.main.async {
                 switch result {
                 case .success:

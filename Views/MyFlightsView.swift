@@ -6,13 +6,13 @@ struct MyFlightsView: View {
     @State private var errorMessage: String?
     @State private var selectedFlight: UserFlight? = nil
     var userId: Int
-    var onCompletion: () -> Void // İşlem tamamlandığında çağrılacak callback
+    var onCompletion: () -> Void // İşlem tamamlandığında çağrılacak callback (uçuş listesinin yenilenmesi)
     @Environment(\.presentationMode) var presentationMode
 
     private let flightService = FlightService()
     
     var body: some View {
-        NavigationView {
+        NavigationView {// içindeki bileşenlere bir navigasyon çubuğu ekler ve view'ler arasında geçiş yapmayı sağlar.
             VStack {
                 if isLoading {
                     ProgressView("Loading your flights...")
@@ -25,12 +25,12 @@ struct MyFlightsView: View {
                     Text("You have no booked flights.")
                         .foregroundColor(.gray)
                         .padding()
-                } else {
+                } else {// Uçuşlar başarıyla yüklendiğinde, kullanıcıya bir liste halinde sunulur.
                     List(myFlights) { flight in
                         Button(action: {
                             selectedFlight = flight
                         }) {
-                            VStack(alignment: .leading, spacing: 5) {
+                            VStack(alignment: .leading, spacing: 5) { // Her bir uçuş listede bir VStack olarak gösterilir
                                 Text("\(flight.departure) → \(flight.arrival)")
                                     .font(.headline)
                                 Text("Date: \(flight.formattedDate) at \(flight.time)")
@@ -43,7 +43,7 @@ struct MyFlightsView: View {
                             .padding(5)
                         }
                     }
-                    .sheet(item: $selectedFlight) { flight in
+                    .sheet(item: $selectedFlight) { flight in // ve kullanıcı bu uçuşa tıklayarak iptal edebilir.
                         CancelFlightView(flight: flight, userId: userId, onCancel: {
                             loadMyFlights() // İptal sonrası uçuş listesini yenile
                             onCompletion() // FlightListView'deki listeyi de yenile
@@ -67,11 +67,11 @@ struct MyFlightsView: View {
         }
     }
     
-    private func loadMyFlights() {
+    private func loadMyFlights() { // kullanıcının rezervasyon yaptığı uçuşları sunucudan almak için kullanılır.
         isLoading = true
-        flightService.fetchMyFlights(userId: userId) { result in
+        flightService.fetchMyFlights(userId: userId) { result in // FlightService aracılığıyla bir API isteği yapılır
             DispatchQueue.main.async {
-                switch result {
+                switch result { // ve sonuçlara göre myFlights listesi güncellenir.
                 case .success(let flights):
                     self.myFlights = flights
                 case .failure(let error):

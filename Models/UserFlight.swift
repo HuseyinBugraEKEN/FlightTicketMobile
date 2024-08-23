@@ -11,6 +11,7 @@ struct UserFlight: Codable, Identifiable {
     
     var formattedDate: String {
         guard let dateObject = ISO8601DateFormatter().date(from: date) else {
+// bir optional değeri güvenli bir şekilde açmak (unwrap) ve belirli bir koşulun sağlandığından emin olmak için kullanılır. Eğer koşul sağlanmazsa, guard let bloğu içinde belirtilen alternatif işlem gerçekleştirilir
             return date
         }
         let formatter = DateFormatter()

@@ -1,3 +1,5 @@
+// Swift dilinde, property wrapper'ların (@State, @Binding vb.) arka planda kullanılan türlerine erişmek için bu property'lerin başına _ ekleyerek doğrudan o sarıcıya (wrapper'a) erişim sağlanır.
+
 import SwiftUI
 
 struct EditFlightView: View {
@@ -15,11 +17,11 @@ struct EditFlightView: View {
     private let flightService = FlightService()
     var flightId: Int
 
-    init(flight: Flight) {
+    init(flight: Flight) { // EditFlightView'un bir uçuşun mevcut verileriyle başlatılmasını sağlar. @State değişkenleri uçuşun mevcut değerleriyle başlatılır.
         _departure = State(initialValue: flight.departure)
         _arrival = State(initialValue: flight.arrival)
         _date = State(initialValue: flight.date)
-        _time = State(initialValue: String(flight.time.prefix(5))) // "12:12:12" yerine "12:12" olarak göster
+        _time = State(initialValue: String(flight.time.prefix(5))) // "12:12:12" yerine "12:12" olarak gösterir
         _capacity = State(initialValue: flight.capacity)
         _price = State(initialValue: String(format: "%.2f", NSDecimalNumber(decimal: flight.price).doubleValue)) // "121.21 TL" yerine "121.21" olarak göster
         self.flightId = flight.id
@@ -82,6 +84,7 @@ struct EditFlightView: View {
             return
         }
 
+        // Fiyatın uygunluğunu kontrol etme
         guard let priceValue = Decimal(string: price) else {
             errorMessage = "Invalid price format."
             editSuccess = false
@@ -108,10 +111,10 @@ struct EditFlightView: View {
             price: priceValue
         )
 
-        flightService.updateFlight(flightId: flightId, flight: flight) { result in
+        flightService.updateFlight(flightId: flightId, flight: flight) { result in // FlightService aracılığıyla uçuş düzenleme isteği yapılır.
             DispatchQueue.main.async {
                 switch result {
-                case .success:
+                case .success: // Başarılı olursa, ekran kapanır ve başarı mesajı gösterilir.
                     editSuccess = true
                     showMessage = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
